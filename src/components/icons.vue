@@ -61,7 +61,7 @@ export default {
   @import "~styles/vars.styl"
   .icons
     height 0
-    padding-bottom: 51.2%
+    padding-bottom: 47.2%
     margin-top torem(12)
     box-sizing border-box
     .icon
