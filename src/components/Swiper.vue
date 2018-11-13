@@ -49,6 +49,8 @@ export default{
 
 <style scoped lang="stylus">
   /*在此处引入的必须是styl  此处的style只对当前组件生效,但是分页是传递给swiperr组件了,所以不会生效,三个箭头进行穿透*/
+  .swiper-container >>> .swiper-pagination-bullet
+    background rgba(255,255,255,.5)
   .swiper-container >>> .swiper-pagination-bullet-active
     background #fff
   .swiper-container
