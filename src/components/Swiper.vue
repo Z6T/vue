@@ -15,13 +15,11 @@
 import Swiper from 'swiper'
 export default{
   mounted: function () {
-    // eslint-disable-next-line t
     var mySwiper = new Swiper('.swiper-container', {
       autoplay: true,
       loop: true,
-      pagination: {
-        el: '.swiper-pagination'
-      }
+      speed: 2000,
+      pagination: '.swiper-pagination'
     })
   },
   data () {
