@@ -1,5 +1,5 @@
 <template>
-  <div class="icons">
+  <div class="icons border-bottom">
     <div class="icon">
       <div class="icon-img">
         <img src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png" alt="" class="img-comtent">
@@ -61,9 +61,10 @@ export default {
   @import "~styles/vars.styl"
   .icons
     height 0
-    padding-bottom: 51.2%
-    margin-top torem(12)
+    padding-bottom: 47.6%
+    padding-top: 0.24rem;
     box-sizing border-box
+    background white
     .icon
       position: relative
       width 25%
