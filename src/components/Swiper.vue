@@ -19,7 +19,9 @@ export default{
       autoplay: true,
       loop: true,
       speed: 2000,
-      pagination: '.swiper-pagination'
+      pagination: {
+        el: '.swiper-pagination'
+      }
     })
   },
   data () {
