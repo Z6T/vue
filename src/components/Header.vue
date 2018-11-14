@@ -8,14 +8,17 @@
         输入城市/景点/游玩主题
       </div>
       <div class="header-right">
-        北京<span class="iconfont arrow-icon">&#xe64a;</span>
+        {{this.city}}<span class="iconfont arrow-icon">&#xe64a;</span>
       </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'Header'
+  name: 'Header',
+  props: {
+    city: String
+  }
 }
 </script>
 

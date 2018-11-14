@@ -3,7 +3,7 @@
     <div class="swiper-wrapper">
       <div v-for='(i,index) in arrItem' :key='index' class="swiper-slide">
         <div class="iSlide">
-          <img class="img" :src="i.imgUrl">
+          <img class="img" :src="i.imgUrl" :key="i.name">
         </div>
       </div>
     </div>
@@ -14,37 +14,21 @@
 <script>
 import Swiper from 'swiper'
 export default{
+  props: {
+    arrItem: Array
+  },
   mounted: function () {
     var mySwiper = new Swiper('.swiper-container', {
       autoplay: true,
       loop: true,
       speed: 2000,
+      observer: true,
+      // 修改swiper的父元素时，自动初始化swiper
+      observeParents: true,
       pagination: {
         el: '.swiper-pagination'
       }
     })
-  },
-  data () {
-    return {
-      arrItem: [
-        {
-          name: 'swiperSlide5',
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1810/6e/4a5551bbb189d902.jpg_750x200_25257467.jpg'
-        },
-        {
-          name: 'swiperSlide1',
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1809/12/856f100069809e02.jpg_750x200_e3485a2b.jpg'
-        },
-        {
-          name: 'swiperSlide6',
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1810/af/30ffcf34e9819f02.jpg_750x200_736b7236.jpg'
-        },
-        {
-          name: 'swiperSlide9',
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1811/ce/77e115fea8f99102.jpg_750x200_a2d0fcd2.jpg'
-        }
-      ]
-    }
   }
 }
 </script>

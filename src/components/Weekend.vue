@@ -2,39 +2,12 @@
     <div class="weekend">
       <p class="week-title">周末去哪儿</p>
       <ul>
-        <li class="item">
+        <li class="item" v-for="(item,index) of weekendList" :key="index">
           <a href="">
-            <div class="item-img-wrapper"><img src="http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg" alt=""></div>
+            <div class="item-img-wrapper"><img :src="item.imgUrl" alt=""></div>
             <div class="item-title-wrapper">
-              <p class="item-stitle">京城人的周末撒欢地</p>
-              <p class="item-btitle">在帝都过周末，不仅仅是城中游！</p>
-            </div>
-          </a>
-        </li>
-        <li class="item">
-          <a href="">
-            <div class="item-img-wrapper"><img src="http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg" alt=""></div>
-            <div class="item-title-wrapper">
-              <p class="item-stitle">京城人的周末撒欢地</p>
-              <p class="item-btitle">在帝都过周末，不仅仅是城中游！</p>
-            </div>
-          </a>
-        </li>
-        <li class="item">
-          <a href="">
-            <div class="item-img-wrapper"><img src="http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg" alt=""></div>
-            <div class="item-title-wrapper">
-              <p class="item-stitle">京城人的周末撒欢地</p>
-              <p class="item-btitle">在帝都过周末，不仅仅是城中游！</p>
-            </div>
-          </a>
-        </li>
-        <li class="item">
-          <a href="">
-            <div class="item-img-wrapper"><img src="http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg" alt=""></div>
-            <div class="item-title-wrapper">
-              <p class="item-stitle">京城人的周末撒欢地</p>
-              <p class="item-btitle">在帝都过周末，不仅仅是城中游！</p>
+              <p class="item-stitle">{{ item.title }}</p>
+              <p class="item-btitle">{{ item.desc }}</p>
             </div>
           </a>
         </li>
@@ -44,7 +17,10 @@
 
 <script>
 export default {
-  name: 'Weekend'
+  name: 'Weekend',
+  props: {
+    weekendList: Array
+  }
 }
 </script>
 

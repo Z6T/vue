@@ -5,104 +5,19 @@
       <span>猜你喜欢</span>
     </div>
     <ul class="guess-ul">
-      <li class="guess-li border-bottom">
+      <li class="guess-li border-bottom" v-for="(item,index) of recommendList" :key="index">
         <a href="" class="mp-fulllink">
-          <div class="a-img"><img src="../assets/imgs/choushitou.png" alt=""></div>
+          <div class="a-img"><img :src="item.imgUrl" alt=""></div>
           <div class="a-content">
-            <div class="guess-liketitle">徐梦瑶</div>
+            <div class="guess-liketitle">{{ item.title }}</div>
             <div class="guess-likecomment">
               <img src="../assets/imgs/star.png" alt="">
               <span>99999条评论</span>
             </div>
             <div class="guess-likeprice">
-              <span class="gp">￥<em>不卖</em></span>
+              <span class="gp">￥<em>{{ item.price }}</em></span>
               起
-              <span class="gp-address">登封市</span>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li class="guess-li">
-        <a href="" class="mp-fulllink">
-          <div class="a-img"><img src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg" alt=""></div>
-          <div class="a-content">
-            <div class="guess-liketitle">故宫</div>
-            <div class="guess-likecomment">
-              <img src="../assets/imgs/star.png" alt="">
-              <span>31333条评论</span>
-            </div>
-            <div class="guess-likeprice">
-              <span class="gp">￥<em>20</em></span>
-              起
-              <span class="gp-address">大兴区</span>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li class="guess-li border-bottom" >
-        <a href="" class="mp-fulllink">
-          <div class="a-img"><img src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg" alt=""></div>
-          <div class="a-content">
-            <div class="guess-liketitle">故宫</div>
-            <div class="guess-likecomment">
-              <img src="../assets/imgs/star.png" alt="">
-              <span>31333条评论</span>
-            </div>
-            <div class="guess-likeprice">
-              <span class="gp">￥<em>20</em></span>
-              起
-              <span class="gp-address">大兴区</span>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li class="guess-li border-bottom">
-        <a href="" class="mp-fulllink">
-          <div class="a-img"><img src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg" alt=""></div>
-          <div class="a-content">
-            <div class="guess-liketitle">故宫</div>
-            <div class="guess-likecomment">
-              <img src="../assets/imgs/star.png" alt="">
-              <span>31333条评论</span>
-            </div>
-            <div class="guess-likeprice">
-              <span class="gp">￥<em>20</em></span>
-              起
-              <span class="gp-address">大兴区</span>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li class="guess-li">
-        <a href="" class="mp-fulllink">
-          <div class="a-img"><img src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg" alt=""></div>
-          <div class="a-content">
-            <div class="guess-liketitle">故宫</div>
-            <div class="guess-likecomment">
-              <img src="../assets/imgs/star.png" alt="">
-              <span>31333条评论</span>
-            </div>
-            <div class="guess-likeprice">
-              <span class="gp">￥<em>20</em></span>
-              起
-              <span class="gp-address">大兴区</span>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li class="guess-li">
-        <a href="" class="mp-fulllink">
-          <div class="a-img"><img src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg" alt=""></div>
-          <div class="a-content">
-            <div class="guess-liketitle">故宫</div>
-            <div class="guess-likecomment">
-              <img src="../assets/imgs/star.png" alt="">
-              <span>31333条评论</span>
-            </div>
-            <div class="guess-likeprice">
-              <span class="gp">￥<em>20</em></span>
-              起
-              <span class="gp-address">大兴区</span>
+              <span class="gp-address">{{ address }}</span>
             </div>
           </div>
         </a>
@@ -113,7 +28,10 @@
 
 <script>
 export default {
-  name: 'Guess'
+  name: 'Guess',
+  props: {
+    recommendList: Array
+  }
 }
 </script>
 

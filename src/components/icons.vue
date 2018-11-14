@@ -1,59 +1,20 @@
 <template>
   <div class="icons border-bottom">
-    <div class="icon">
+    <div class="icon" v-for="(item,index) of iconList" :key="index">
       <div class="icon-img">
-        <img src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png" alt="" class="img-comtent">
+        <img :src="item.imgUrl" alt="" class="img-comtent">
       </div>
-      <p class="icon-desc">景点门票</p>
-    </div>
-    <div class="icon">
-      <div class="icon-img">
-        <img src="http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png" alt="" class="img-comtent">
-      </div>
-      <p class="icon-desc">北京门票</p>
-    </div>
-    <div class="icon">
-      <div class="icon-img">
-        <img src="http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png" alt="" class="img-comtent">
-      </div>
-      <p class="icon-desc">一日游</p>
-    </div>
-    <div class="icon">
-      <div class="icon-img">
-        <img src="http://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png" alt="" class="img-comtent">
-      </div>
-      <p class="icon-desc">文化古迹</p>
-    </div>
-    <div class="icon">
-      <div class="icon-img">
-        <img src="http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png" alt="" class="img-comtent">
-      </div>
-      <p class="icon-desc">动植物园</p>
-    </div>
-    <div class="icon">
-      <div class="icon-img">
-        <img src="https://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png" alt="" class="img-comtent">
-      </div>
-      <p class="icon-desc">打卡圣地</p>
-    </div>
-    <div class="icon">
-      <div class="icon-img">
-        <img src="http://img1.qunarzz.com/piao/fusion/1803/fa/2548667cb6e902.png" alt="" class="img-comtent">
-      </div>
-      <p class="icon-desc">野生动物园</p>
-    </div>
-    <div class="icon">
-      <div class="icon-img">
-        <img src="http://img1.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png" alt="" class="img-comtent">
-      </div>
-      <p class="icon-desc">泡温泉</p>
+      <p class="icon-desc">{{ item.desc }}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'icons'
+  name: 'icons',
+  props: {
+    iconList: Array
+  }
 }
 </script>
 
