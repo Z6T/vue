@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import HomeHeader from '@/components/Header'
-import Swiper from '@/components/Swiper'
-import Icons from '@/components/Icons'
-import Guess from '@/components/Guess'
-import Weekend from '@/components/Weekend'
+import HomeHeader from '@/components/home/Header'
+import Swiper from '@/components/home/SwiperList'
+import Icons from '@/components/home/Icons'
+import Guess from '@/components/home/Guess'
+import Weekend from '@/components/home/Weekend'
 import axios from 'axios'
 export default {
   name: 'Home',
@@ -29,7 +29,8 @@ export default {
       city: '',
       swiperList: [],
       iconList: [],
-      recommendList: []
+      recommendList: [],
+      weekendList: []
     }
   },
   methods: {

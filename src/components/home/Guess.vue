@@ -11,13 +11,13 @@
           <div class="a-content">
             <div class="guess-liketitle">{{ item.title }}</div>
             <div class="guess-likecomment">
-              <img src="../assets/imgs/star.png" alt="">
+              <img src="../../assets/imgs/star.png" alt="">
               <span>99999条评论</span>
             </div>
             <div class="guess-likeprice">
               <span class="gp">￥<em>{{ item.price }}</em></span>
               起
-              <span class="gp-address">{{ address }}</span>
+              <span class="gp-address">{{ item.address }}</span>
             </div>
           </div>
         </a>

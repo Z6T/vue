@@ -8,7 +8,9 @@
         输入城市/景点/游玩主题
       </div>
       <div class="header-right">
-        {{this.city}}<span class="iconfont arrow-icon">&#xe64a;</span>
+        <router-link to="/citylist">
+          {{this.city}}<span class="iconfont arrow-icon">&#xe64a;</span>
+        </router-link>
       </div>
     </div>
 </template>
@@ -51,7 +53,9 @@ export default {
       float right
       width torem(66)
       text-align center
-      .arrow-icon
-        font-size .24rem
-        margin-left: 0.04rem;
+      a
+        color: white
+        .arrow-icon
+          font-size .24rem
+          margin-left: 0.04rem;
 </style>
