@@ -6,7 +6,7 @@
         :cities ='cities'
         :hotCities ='hotCities'
       ></city-list>
-      <city-alphabet></city-alphabet>
+      <city-alphabet :cities="cities"></city-alphabet>
     </div>
 </template>
 
@@ -21,8 +21,9 @@ export default {
   name: 'SearchCity',
   data () {
     return {
-      cities: [],
-      hotCities: []
+      cities: {},
+      hotCities: [],
+      letter: ''
     }
   },
   components: {
@@ -41,7 +42,7 @@ export default {
       }
     }
   },
-  created () {
+  mounted () {
     axios.get('/api/city.json')
       .then(this.handleCityJson)
   }

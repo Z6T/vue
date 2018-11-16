@@ -1,37 +1,35 @@
 <template>
-  <ul class="list">
-    <li>A</li>
-    <li>B</li>
-    <li>C</li>
-    <li>D</li>
-    <li>E</li>
-    <li>F</li>
-    <li>A</li>
-    <li>B</li>
-    <li>C</li>
-    <li>D</li>
-    <li>E</li>
-    <li>F</li>
-    <li>A</li>
-    <li>B</li>
-    <li>C</li>
-    <li>D</li>
-    <li>E</li>
-    <li>F</li>
-    <li>A</li>
-    <li>B</li>
-    <li>C</li>
-    <li>D</li>
-    <li>E</li>
-    <li>E</li>
-    <li>E</li>
-    <li>F</li>
+  <ul class="list" >
+    <li
+      :key="item"
+      v-for="item in letterarr"
+      @click="clickLetter"
+    >{{ item }}</li>
   </ul>
 </template>
 
 <script>
+import Bus from '../../assets/bus.js'
 export default {
-  name: 'CityAlphabet'
+  name: 'CityAlphabet',
+  props: {
+    cities: Object
+  },
+  methods: {
+    clickLetter (e) {
+      var currentLetter = e.target.innerText
+      Bus.$emit('scrollEle', currentLetter)
+    }
+  },
+  computed: {
+    letterarr () {
+      const letters = []
+      for (let key in this.cities) {
+        letters.push(key)
+      }
+      return letters
+    }
+  }
 }
 </script>
 

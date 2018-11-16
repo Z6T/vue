@@ -13,8 +13,8 @@
             <div class="button">{{ item.name }}</div>
           </div>
         </div>
-        <div class="area" v-for="(value,key) of cities" :key="key">
-          <div class="title border-topbottom">{{ key }}</div>
+        <div class="area" v-for="(value,key) of cities" :key="key" :ref="key">
+          <div class="title border-topbottom" >{{ key }}</div>
           <div class="item-list" v-for="(item) of value" :key="item.id">
             <div class="item border-bottom">{{ item.name }}</div>
           </div>
@@ -25,14 +25,28 @@
 
 <script>
 import Bscroll from 'better-scroll'
+import Bus from '../../assets/bus.js'
 export default {
   name: 'CityList',
+  data () {
+    return {
+      letter: ''
+    }
+  },
   props: {
-    cities: Array,
+    cities: Object,
     hotCities: Array
   },
   mounted () {
-    this.scroll = new Bscroll(this.$refs.wrapper)
+    var vm = this
+    vm.scroll = new Bscroll(this.$refs.wrapper)
+    Bus.$on('scrollEle', function (data) {
+      // console.log(this)---Vue
+      // console.log(vm)---此组件
+      // 这里的this不是vm
+      vm.letter = data
+      vm.scroll.scrollToElement(vm.$refs[data][0])
+    })
   }
 }
 </script>
