@@ -4,6 +4,10 @@
       :key="item"
       v-for="item in letterarr"
       @click="clickLetter"
+      @touchstart="handleTouchStart"
+      @touchmove="handleTouchMove"
+      @touchend="handleTouchEnd"
+      :ref="item"
     >{{ item }}</li>
   </ul>
 </template>
@@ -12,6 +16,11 @@
 import Bus from '../../assets/bus.js'
 export default {
   name: 'CityAlphabet',
+  data () {
+    return {
+      touchState: false
+    }
+  },
   props: {
     cities: Object
   },
@@ -19,6 +28,19 @@ export default {
     clickLetter (e) {
       var currentLetter = e.target.innerText
       Bus.$emit('scrollEle', currentLetter)
+    },
+    handleTouchStart () {
+      this.touchState = true
+    },
+    handleTouchMove (e) {
+      debugger
+      var AstartY = this.$refs['A'][0].offsetTop
+      var thisletterY = e.touches[0].clientY
+      var index = Math.floor((thisletterY - AstartY - 79) / 15)
+      console.log(this.letterarr[index])
+    },
+    handleTouchEnd () {
+      this.touchState = false
     }
   },
   computed: {

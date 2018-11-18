@@ -7,6 +7,14 @@
         :hotCities ='hotCities'
       ></city-list>
       <city-alphabet :cities="cities"></city-alphabet>
+      <div v-show="isshow" style="    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -10px;
+    background: url(http://img.lanrentuku.com/img/allimg/1212/5-121204194025.gif);
+    background-size: 100%;"></div>
     </div>
 </template>
 
@@ -23,7 +31,8 @@ export default {
     return {
       cities: {},
       hotCities: [],
-      letter: ''
+      letter: '',
+      isshow: true
     }
   },
   components: {
@@ -39,6 +48,7 @@ export default {
         var data = res.data
         this.cities = data.cities
         this.hotCities = data.hotCities
+        this.isshow = false
       }
     }
   },
