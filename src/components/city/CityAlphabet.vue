@@ -4,6 +4,7 @@
       <div class="showletterdiv">{{ thisLetter}}</div>
     </li>
     <li
+      v-bind:class="{'activeli': thisLetter === item}"
       :key="item"
       v-for="item in letterarr"
       @click="clickLetter"
@@ -34,6 +35,7 @@ export default {
   methods: {
     clickLetter (e) {
       var currentLetter = e.target.innerText
+      this.thisLetter = currentLetter
       Bus.$emit('scrollEle', currentLetter)
     },
     handleTouchStart () {
@@ -78,6 +80,9 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.activeli
+  color black !important
+
 .showletterdiv
   position: absolute;
   top: 50%;

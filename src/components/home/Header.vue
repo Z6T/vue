@@ -9,7 +9,7 @@
       </div>
       <div class="header-right">
         <router-link to="/citylist">
-          {{this.city}}<span class="iconfont arrow-icon">&#xe64a;</span>
+          {{this.$store.state.city}}<span class="iconfont arrow-icon">&#xe64a;</span>
         </router-link>
       </div>
     </div>
@@ -50,8 +50,9 @@ export default {
       border-radius: .1rem
       color #e4e7ea
     .header-right
+      min-width: 1.04rem
+      padding: 0 .1rem
       float right
-      width torem(66)
       text-align center
       a
         color: white

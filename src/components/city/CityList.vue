@@ -4,19 +4,20 @@
         <div class="area">
           <div class="title border-topbottom">当前城市</div>
           <div class="button-wrapper">
-            <div class="button">北京</div>
+            <div class="button">{{ this.$store.state.city}}</div>
           </div>
         </div>
         <div class="area">
-          <div class="title border-topbottom">热门城市</div>
-          <div class="button-wrapper" v-for="(item,index) of hotCities" :key="index">
+          <div class="title border-topbottom" >热门城市</div>
+          <div class="button-wrapper" v-for="(item,index) of hotCities" :key="index"  @click="handleClick(item.name)">
             <div class="button">{{ item.name }}</div>
           </div>
         </div>
         <div class="area" v-for="(value,key) of cities" :key="key" :ref="key">
           <div class="title border-topbottom" >{{ key }}</div>
-          <div class="item-list" v-for="(item) of value" :key="item.id">
-            <div class="item border-bottom">{{ item.name }}</div>
+          <div class="item-list" v-for="item of value" :key="item.id" @click="handleClick(item.name)">
+            <div class="item border-bottom"
+            >{{ item.name }}</div>
           </div>
         </div>
       </div>
@@ -37,9 +38,17 @@ export default {
     cities: Object,
     hotCities: Array
   },
+  methods: {
+    handleClick (name) {
+      this.$store.dispatch('changeCity', name)
+      this.$router.push('/')
+    }
+  },
   mounted () {
     var vm = this
-    vm.scroll = new Bscroll(this.$refs.wrapper)
+    vm.scroll = new Bscroll(this.$refs.wrapper, {
+      click: true
+    })
     Bus.$on('scrollEle', function (data) {
       // console.log(this)---Vue
       // console.log(vm)---此组件
