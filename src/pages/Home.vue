@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <home-header :city="city"></home-header>
-    <swiper :arrItem="swiperList"></swiper>
-    <icons :iconList = "iconList"></icons>
-    <guess :recommendList = "recommendList"></guess>
-    <weekend :weekendList = "weekendList"></weekend>
-  </div>
+    <div>
+        <home-header :city="city"></home-header>
+        <swiper :arrItem="swiperList"></swiper>
+        <icons :iconList="iconList"></icons>
+        <guess :recommendList="recommendList"></guess>
+        <weekend :weekendList="weekendList"></weekend>
+    </div>
 </template>
 
 <script>
@@ -35,7 +35,12 @@ export default {
   },
   methods: {
     getHomeInfo () {
-      axios.get('/api/index.json')
+      let data = { 'code': '1234', 'name': 'yyyy' }
+      axios.get('/api/index.json', {
+        date: '2017/09/10'
+      }, {
+        'headers': { 'Content-Type': 'application/x-www-form-urlencodeed' }
+      })
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
@@ -57,5 +62,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

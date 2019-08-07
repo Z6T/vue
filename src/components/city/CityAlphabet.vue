@@ -1,19 +1,19 @@
 <template>
-  <ul class="list" >
-    <li  v-show="tipDivShow">
-      <div class="showletterdiv">{{ thisLetter}}</div>
-    </li>
-    <li
-      v-bind:class="{'activeli': thisLetter === item}"
-      :key="item"
-      v-for="item in letterarr"
-      @click="clickLetter"
-      @touchstart="handleTouchStart"
-      @touchmove="handleTouchMove"
-      @touchend="handleTouchEnd"
-      :ref="item"
-    >{{ item }}</li>
-  </ul>
+    <ul class="list">
+        <li v-show="tipDivShow">
+            <div class="showletterdiv">{{ thisLetter}}</div>
+        </li>
+        <li
+            v-bind:class="{'activeli': thisLetter === item}"
+            :key="item"
+            v-for="item in letterarr"
+            @click="clickLetter"
+            @touchstart="handleTouchStart"
+            @touchmove="handleTouchMove"
+            @touchend="handleTouchEnd"
+            :ref="item"
+        >{{ item }}</li>
+    </ul>
 </template>
 
 <script>
@@ -80,34 +80,39 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.activeli
-  color black !important
+.activeli {
+    color: #00bcd4 !important;
+}
 
-.showletterdiv
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  margin-top: -15px;
-  width: 30px;
-  background: rgba(208, 192, 192, 0.6);
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.showletterdiv {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    margin-top: -15px;
+    width: 30px;
+    background: rgba(208, 192, 192, 0.6);
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-.list
-  display: flex
-  flex-direction column
-  width 0.4rem
-  justify-content center
-  position: absolute
-  z-index 111
-  right: 0
-  bottom: 0
-  top: 1.58rem;
-  li
-    line-height: .3rem
-    text-align: center
-    color: #00bcd4
+.list {
+    display: flex;
+    flex-direction: column;
+    width: 0.4rem;
+    justify-content: center;
+    position: absolute;
+    z-index: 111;
+    right: 0;
+    bottom: 0;
+    top: 1.58rem;
+
+    li {
+        line-height: 0.3rem;
+        text-align: center;
+        color: #ccc;
+    }
+}
 </style>
