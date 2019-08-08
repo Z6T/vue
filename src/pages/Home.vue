@@ -5,6 +5,7 @@
         <icons :iconList="iconList"></icons>
         <guess :recommendList="recommendList"></guess>
         <weekend :weekendList="weekendList"></weekend>
+        test
     </div>
 </template>
 
