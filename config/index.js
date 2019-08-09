@@ -8,7 +8,7 @@ module.exports = {
   dev: {
     // Paths
     assetsSubDirectory: "static",
-    assetsPublicPath: "/qunar/",
+    assetsPublicPath: "/",
     proxyTable: {
       "/api": {
         target: "http://localhost:8082",
@@ -56,7 +56,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, "../dist"),
     assetsSubDirectory: "static",
-    assetsPublicPath: "/",
+    assetsPublicPath: "/qunar/",
 
     /**
      * Source Maps
