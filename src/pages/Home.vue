@@ -5,13 +5,13 @@
         <icons :iconList="iconList"></icons>
         <guess :recommendList="recommendList"></guess>
         <weekend :weekendList="weekendList"></weekend>
+        test
     </div>
 </template>
 
 <script>
 import HomeHeader from '@/components/home/Header'
 import Swiper from '@/components/home/SwiperList'
-import Icons from '@/components/home/Icons'
 import Guess from '@/components/home/Guess'
 import Weekend from '@/components/home/Weekend'
 import axios from 'axios'
@@ -20,7 +20,6 @@ export default {
   components: {
     HomeHeader,
     Swiper,
-    Icons,
     Guess,
     Weekend
   },
